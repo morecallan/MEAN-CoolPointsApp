@@ -1,0 +1,17 @@
+{
+  "name": "mean-coolpointsapp",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Callan Morrison <callan.l.morrison@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/morecallan/MEAN-CoolPointsApp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
