@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/morecallan/MEAN-CoolPointsApp/issues"
   },
-  "homepage": "https://github.com/morecallan/MEAN-CoolPointsApp#readme"
+  "homepage": "https://github.com/morecallan/MEAN-CoolPointsApp#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect-redis": "^3.1.0",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2"
+  }
 }
