@@ -9,10 +9,11 @@ const express = require('express');
 const app = express();
 
 
-//////// ROUTES IMPORTS: user, instructor, student, assignment ////////
+//////// ROUTES IMPORTS: user, instructor, student, class, assignment ////////
 const userRoutes = require('./routes/user');
 const instructorRoutes = require('./routes/instructor');
 const studentRoutes = require('./routes/student');
+const classRoutes = require('./routes/class');
 const assignmentRoutes = require('./routes/assignment');
 
 
@@ -37,7 +38,7 @@ app.use((req, res, next) => {
 //////// Middlewares ////////
 app.use(express.static('client'));
 app.use(json());
-app.use(userRoutes, instructorRoutes, studentRoutes, assignmentRoutes);
+app.use(userRoutes, instructorRoutes, studentRoutes, classRoutes, assignmentRoutes);
 
 app.get('/', (req, res) => {
   console.log("hello world")
