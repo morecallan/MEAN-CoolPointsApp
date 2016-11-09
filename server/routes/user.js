@@ -1,7 +1,8 @@
-const { Router } = require('express')
-const router = Router()
+'use strict';
 
-const bcrypt = require('bcrypt')
+const { Router } = require('express');
+const router = Router();
 
+const bcrypt = require('bcrypt');
 
 module.exports = router
