@@ -34,8 +34,8 @@ app.use(session({
 
 // Redis session sets app.locals each req
 app.use((req, res, next) => {
-   //app.locals.email = req.session.email
-   //app.locals.uid = req.session.uid
+   app.locals.email = req.session.email
+   app.locals.uid = req.session.uid
    next();
 })
 
