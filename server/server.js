@@ -10,6 +10,7 @@ const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017/assign
 const {json} = require('body-parser');
 const express = require('express');
 const app = express();
+const databaseConnect = require('./db/database')(MONGODB_URL);
 
 
 //////// ROUTES IMPORTS: user, instructor, student, class, assignment ////////
@@ -33,8 +34,8 @@ app.use(session({
 
 // Redis session sets app.locals each req
 app.use((req, res, next) => {
-   //app.locals.email = req.session.email
-   //app.locals.uid = req.session.uid
+   app.locals.email = req.session.email
+   app.locals.uid = req.session.uid
    next();
 })
 
@@ -47,5 +48,6 @@ app.get('/', (req, res) => {
   res.send("hello world")
 })
 
-
-app.listen(PORT, () => console.log(`listening on port ${PORT}`))
+databaseConnect.then(() =>
+  app.listen(PORT, () => console.log(`listening on port ${PORT}`))
+)
