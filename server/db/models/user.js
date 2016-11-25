@@ -15,5 +15,14 @@ module.exports = mongoose.model('User', {
   password: {
     type: String,
     required: true,
+  },
+  organizationID: {
+    type: String
+  },
+  userInfo: {
+    authorization: Number, //0: Administrator, 1: Instructor, 2: Student
+    uid: {
+      type: String
+    }
   }
 })
