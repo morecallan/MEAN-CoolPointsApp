@@ -16,11 +16,12 @@ module.exports = mongoose.model('User', {
     type: String,
     required: true,
   },
-  organizationID: {
-    type: String
+  organizationIDs: {
+    type: [String]
   },
   userInfo: {
     authorization: Number, //0: Administrator, 1: Instructor, 2: Student
+    organizationID: Number,
     uid: {
       type: String
     }
