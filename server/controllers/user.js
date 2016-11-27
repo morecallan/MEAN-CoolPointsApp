@@ -28,6 +28,14 @@ const createNewUser = ({body: {email, password}}, res) => {
   })
 }
 
+const loginUser = ({body: {email, password}}, res) => {
+  //Check to see if user exists in the system with this email
+  User.find({email: email})
+  //TODO: Need to fill out the rest of login function
+    //-set req.session
+    //-return entire user object
+}
 
 
-module.exports = {createNewUser}
+
+module.exports = {createNewUser, loginUser}
