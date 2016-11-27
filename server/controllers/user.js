@@ -28,4 +28,6 @@ const createNewUser = ({body: {email, password}}, res) => {
   })
 }
 
+
+
 module.exports = {createNewUser}
