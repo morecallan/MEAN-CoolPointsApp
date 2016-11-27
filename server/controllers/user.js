@@ -7,22 +7,24 @@ const bcrypt = require('bcrypt');
 const createNewUser = ({body: {email, password}}, res) => {
   //Check to see if user exists in the system with this email
   User.find({email: email})
-  .then(()=>res.send({response: "User with this email already exitsts."}))
-  .catch(()=>{
-  //Hashes users pawssword for storage.
-    return new Promise((resolve, reject) => {
-       bcrypt.hash(password, 15, (err, hash) => {
-         if (err) {
-           reject(err)
-         } else {
-           resolve(hash)
-          }
+  .then((reply)=> {
+    if (reply.length !== 0) {
+      res.send({response: "User with this email already exitsts."})
+    } else {
+      return new Promise((resolve, reject) => {
+         bcrypt.hash(password, 15, (err, hash) => {
+           if (err) {
+             reject(err)
+           } else {
+             resolve(hash)
+            }
+          })
+        }).then((hash) => {
+          return User.create({email, password: hash})
+        }).then((user) => {
+          res.send({response: "User successfully created.", user})
         })
-      }).then((hash) => {
-        return User.create({email, password: hash})
-      }).then((user) => {
-        res.send({response: "User successfully created.", user})
-      })
+    }
   })
 }
 
